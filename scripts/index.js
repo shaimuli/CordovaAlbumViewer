@@ -20,7 +20,7 @@
             alert("111");
             exitAppPopup();
         } else {
-            alert("222");
+            alert("2222");
             exitAppPopup();
         }
         //e.preventDefault();
