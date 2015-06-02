@@ -16,13 +16,15 @@
     };
 
     function onBackKeyDown(e) {
-        alert("asdasd");
+        
         e.preventDefault();
         navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
+        alert("asdasd");
         // Prompt the user with the choice
     }
 
     function onConfirm(button) {
+        alert("asdasd");
         if (button == 2) {//If User selected No, then we just do nothing
             return;
         } else {
