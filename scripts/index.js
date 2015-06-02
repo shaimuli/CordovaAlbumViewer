@@ -30,23 +30,23 @@
     }
 
     function exitAppPopup() {
-        alert("3332");
-        navigator.app.exitApp();
-        //navigator.notification.confirm(
-        //      'Exit PhoneGap ' + device.cordova + ' Demo?'
-        //    , function (button) {
-        //        if (button == 2) {
-        //            navigator.app.exitApp();
-        //        }
-        //    }
-        //    , 'Exit'
-        //    , 'No,Yes'
-        //);
+        alert("333");
+         //navigator.app.exitApp();
+        navigator.notification.confirm(
+              'האם ברצונך לצאת??'
+            , function (button) {
+                if (button == 2) {
+                    navigator.app.exitApp();
+                }
+            }
+            , 'Exit'
+            , 'No,Yes'
+        );
         return false;
     }
 
     function onConfirm(button) {
-        alert("asdasd");
+        alert("onConfirm");
         if (button == 2) {//If User selected No, then we just do nothing
             return;
         } else {

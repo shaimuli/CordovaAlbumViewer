@@ -11,9 +11,11 @@
   <preference name="BackupWebStorage" value="local" />
   <preference name="StatusBarOverlaysWebView" value="true" />
   <preference name="StatusBarBackgroundColor" value="#535353" />
-  <preference name="StatusBarStyle" value="lightcontent" />  
+  <preference name="StatusBarStyle" value="lightcontent" />
   <preference name="Fullscreen" value="false" />
   <vs:plugin name="org.apache.cordova.statusbar" version="0.1.8" />
+  <vs:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+  <vs:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows" id="com.westwind.albumviewer" version="0.1.0.0">
       <vs:name>West Wind Album Viewer</vs:name>
