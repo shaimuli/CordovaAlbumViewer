@@ -16,11 +16,32 @@
     };
 
     function onBackKeyDown(e) {
-        
-        e.preventDefault();
-        navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
-        alert("asdasd");
+        if ($('.ui-page-active').attr('id') == 'main') {
+            alert("111");
+            exitAppPopup();
+        } else {
+            alert("222");
+            history.back();
+        }
+        //e.preventDefault();
+        //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
+        //alert("asdasd");
         // Prompt the user with the choice
+    }
+
+    function exitAppPopup() {
+        alert("333");
+        navigator.notification.confirm(
+              'Exit PhoneGap ' + device.cordova + ' Demo?'
+            , function (button) {
+                if (button == 2) {
+                    navigator.app.exitApp();
+                }
+            }
+            , 'Exit'
+            , 'No,Yes'
+        );
+        return false;
     }
 
     function onConfirm(button) {
