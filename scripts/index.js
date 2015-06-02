@@ -32,17 +32,7 @@
     function exitAppPopup() {
         alert("333");
          //navigator.app.exitApp();
-        navigator.notification.confirm(
-              'האם ברצונך לצאת??'
-            , function (button) {
-                if (button == 2) {
-                    navigator.app.exitApp();
-                }
-            }
-            , 'Exit'
-            , 'No,Yes'
-        );
-        return false;
+        navigator.notification.confirm('Sure you want to exit!',onConfirm, 'Confirm', ['Cancel','Exit']); 
     }
 
     function onConfirm(button) {
