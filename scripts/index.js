@@ -21,7 +21,7 @@
             exitAppPopup();
         } else {
             alert("222");
-            history.back();
+            exitAppPopup();
         }
         //e.preventDefault();
         //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
