@@ -32,12 +32,15 @@
     document.addEventListener('deviceready', function () {
         var exitApp = false, intval = setInterval(function () { exitApp = false; }, 1000);
         document.addEventListener("backbutton", function (e) {
+            navigator.notification.confirm('Sure you want to exit!', onConfirm, 'Confirm', ['Cancel', 'Exit']);
             e.preventDefault();
             if (exitApp) {
+                alert("111");
                 clearInterval(intval)
                 (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
             }
             else {
+                alert("222");
                 //clearInterval(intval)
                 //(navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
                 exitApp = true
