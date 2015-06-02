@@ -29,22 +29,22 @@
     //    // Prompt the user with the choice
     //}
 
-    document.addEventListener('deviceready', function() {
-        var exitApp = false, intval = setInterval(function (){exitApp = false;}, 1000);
-        document.addEventListener("backbutton", function (e){
+    document.addEventListener('deviceready', function () {
+        var exitApp = false, intval = setInterval(function () { exitApp = false; }, 1000);
+        document.addEventListener("backbutton", function (e) {
             e.preventDefault();
             if (exitApp) {
-                clearInterval(intval) 
+                clearInterval(intval)
                 (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
             }
             else {
-                clearInterval(intval) 
-                (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
-                //exitApp = true
-                //history.back(1);
-            } 
+                //clearInterval(intval)
+                //(navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+                exitApp = true
+                history.back(1);
+            }
         }, false);
-    }, false
+    }, false);
 
     function exitAppPopup() {
         //alert("333");
