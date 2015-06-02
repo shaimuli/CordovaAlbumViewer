@@ -5,52 +5,45 @@
 (function () {
     "use strict";
 
-    //document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );    
+    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );    
 
-    //function onDeviceReady() {
-    //    // Handle the Cordova pause and resume events
-    //    document.addEventListener( 'pause', onPause.bind( this ), false );
-    //    document.addEventListener('resume', onResume.bind(this), false);
-    //    document.addEventListener("backbutton", onBackKeyDown, false);
-    //    // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-    //};
+    function onDeviceReady() {
+        // Handle the Cordova pause and resume events
+        document.addEventListener( 'pause', onPause.bind( this ), false );
+        document.addEventListener('resume', onResume.bind(this), false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        navigator.notification.alert(
+               'This is Alert',
+               onOK,
+               'Alert',
+               'ok'
+       );
 
-    //function onBackKeyDown(e) {
-    //    if ($('.ui-page-active').attr('id') == 'main') {
-    //        alert("111");
-    //        exitAppPopup();
-    //    } else {
-    //        alert("2222");
-    //        exitAppPopup();
-    //    }
-    //    //e.preventDefault();
-    //    //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
-    //    //alert("asdasd");
-    //    // Prompt the user with the choice
-    //}
+        navigator.notification.confirm(
+                'This is confirm',  // message
+                onConfirm,  // callback to invoke with index of button pressed
+                'button 2',    // title
+                'cancel', 'ok'    // buttonLabels
+        );
+        // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
+    };
 
-    document.addEventListener('deviceready', function () {
-        var exitApp = false, intval = setInterval(function () { exitApp = false; }, 1000);
-        document.addEventListener("backbutton", function (e) {
-            navigator.notification.confirm('Sure you want to exit!', onConfirm, 'Confirm', ['Cancel', 'Exit']);
-            e.preventDefault();
-            if (exitApp) {
-                alert("111");
-                clearInterval(intval)
-                (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
-            }
-            else {
-                alert("222");
-                //clearInterval(intval)
-                //(navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
-                exitApp = true
-                history.back(1);
-            }
-        }, false);
-    }, false);
+    function onBackKeyDown(e) {
+        if ($('.ui-page-active').attr('id') == 'main') {
+            alert("111");
+            exitAppPopup();
+        } else {
+            alert("2222");
+            exitAppPopup();
+        }
+        //e.preventDefault();
+        //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
+        //alert("asdasd");
+        // Prompt the user with the choice
+    }
 
     function exitAppPopup() {
-        //alert("333");
+        alert("333");
          //navigator.app.exitApp();
         navigator.notification.confirm('Sure you want to exit!',onConfirm, 'Confirm', ['Cancel','Exit']); 
     }
