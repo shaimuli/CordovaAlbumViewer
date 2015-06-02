@@ -30,17 +30,18 @@
     }
 
     function exitAppPopup() {
-        alert("333");
-        navigator.notification.confirm(
-              'Exit PhoneGap ' + device.cordova + ' Demo?'
-            , function (button) {
-                if (button == 2) {
-                    navigator.app.exitApp();
-                }
-            }
-            , 'Exit'
-            , 'No,Yes'
-        );
+        alert("3332");
+        navigator.app.exitApp();
+        //navigator.notification.confirm(
+        //      'Exit PhoneGap ' + device.cordova + ' Demo?'
+        //    , function (button) {
+        //        if (button == 2) {
+        //            navigator.app.exitApp();
+        //        }
+        //    }
+        //    , 'Exit'
+        //    , 'No,Yes'
+        //);
         return false;
     }
 
