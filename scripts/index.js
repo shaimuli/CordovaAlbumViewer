@@ -12,19 +12,7 @@
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
         document.addEventListener("backbutton", onBackKeyDown, false);
-        navigator.notification.alert(
-               'This is Alert',
-               onOK,
-               'Alert',
-               'ok'
-       );
-
-        navigator.notification.confirm(
-                'This is confirm',  // message
-                onConfirm,  // callback to invoke with index of button pressed
-                'button 2',    // title
-                'cancel', 'ok'    // buttonLabels
-        );
+       
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
 
@@ -44,6 +32,20 @@
 
     function exitAppPopup() {
         alert("333");
+        navigator.notification.alert(
+              'This is Alert',
+              onOK,
+              'Alert',
+              'ok'
+      );
+
+        navigator.notification.confirm(
+                'This is confirm',  // message
+                onConfirm,  // callback to invoke with index of button pressed
+                'button 2',    // title
+                'cancel', 'ok'    // buttonLabels
+        );
+
          //navigator.app.exitApp();
         navigator.notification.confirm('Sure you want to exit!',onConfirm, 'Confirm', ['Cancel','Exit']); 
     }
