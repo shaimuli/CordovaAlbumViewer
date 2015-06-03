@@ -12,6 +12,7 @@
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
         document.addEventListener("backbutton", onBackKeyDown, false);
+        
        
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
@@ -21,33 +22,11 @@
             alert("111");
             exitAppPopup();
         } else {
-            alert("2222");
-            exitAppPopup();
+            navigator.notification.confirm('Sure you want to exit!', onConfirm, 'Confirm', ['Cancel', 'Exit']);
+           // alert("2222");
+           // exitAppPopup();
         }
-        //e.preventDefault();
-        //navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");
-        //alert("asdasd");
-        // Prompt the user with the choice
-    }
-
-    function exitAppPopup() {
-        alert("333");
-        navigator.notification.alert(
-              'This is Alert',
-              onOK,
-              'Alert',
-              'ok'
-      );
-
-        navigator.notification.confirm(
-                'This is confirm',  // message
-                onConfirm,  // callback to invoke with index of button pressed
-                'button 2',    // title
-                'cancel', 'ok'    // buttonLabels
-        );
-
-         //navigator.app.exitApp();
-        navigator.notification.confirm('Sure you want to exit!',onConfirm, 'Confirm', ['Cancel','Exit']); 
+        
     }
 
     function onConfirm(button) {
